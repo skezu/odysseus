@@ -178,8 +178,8 @@ class Spinner {
     if (!this._wpColors) {
       const s = getComputedStyle(document.documentElement);
       this._wpColors = {
-        fg: s.getPropertyValue('--red').trim() || s.getPropertyValue('--fg').trim() || '#9cdef2',
-        track: s.getPropertyValue('--border').trim() || '#355a66',
+        fg: s.getPropertyValue('--red').trim() || s.getPropertyValue('--fg').trim() || '#faf9f5',
+        track: s.getPropertyValue('--border').trim() || '#413f3b',
       };
     }
     const fg = this._wpColors.fg;

@@ -16,12 +16,14 @@
  */
 
 :root {
-  /* Core palette */
-  --bg: #282c34;
-  --fg: #9cdef2;
-  --panel: #111;
-  --border: #355a66;
-  --red: #e06c75;
+  /* Core palette — Anthropic brand (warm neutral ramp + clay-orange accent).
+     Kept in lockstep with THEMES.dark in static/js/theme.js so first paint
+     (CSS defaults) and the JS-applied default theme look identical. */
+  --bg: #1f1e1d;
+  --fg: #faf9f5;
+  --panel: #2a2826;
+  --border: #413f3b;
+  --red: #d97757;
   /* Were `var(--green)` / `var(--warn)` — self-referential, so they
      resolved to invalid and every site fell back to its own literal
      (or, for sites with no fallback, painted as transparent/inherit).
@@ -30,8 +32,8 @@
   --warn: #f0ad4e;
 
   /* Syntax highlighting */
-  --hl-bg: #1e2228;
-  --hl-fg: #9cdef2;
+  --hl-bg: #161514;
+  --hl-fg: #faf9f5;
   --hl-keyword: #c678dd;
   --hl-string: #e5c07b;
   --hl-comment: #828997;
@@ -49,15 +51,15 @@
   --color-danger: #c0392b;
   --color-recording: #ff3b30;
   --color-recording-hover: #d63031;
-  --color-muted: #888;
-  --color-muted-alt: #6b7280;
-  --color-accent: #00aaff;
+  --color-muted: #b0aea5;
+  --color-muted-alt: #8a877e;
+  --color-accent: #6a9bcc;
   --color-agent-active: #00ff00;
-  --color-brand-blue: #3b82f6;
+  --color-brand-blue: #6a9bcc;
   --color-blind-orange: #ff9800;
   --color-save-green: var(--color-success);
-  --color-link-hover: #66c7ff;
-  --color-subheader: #6b8a94;
+  --color-link-hover: #8fb4d8;
+  --color-subheader: #b0aea5;
   --select-bg: var(--bg);
   --select-fg: var(--fg);
   --select-option-bg: color-mix(in srgb, var(--panel) 74%, var(--bg));
@@ -65,14 +67,15 @@
   --select-option-active-bg: color-mix(in srgb, var(--accent, var(--red)) 24%, var(--panel));
   /* Warm accent — used by the Goals/Today UI in Notes. Lives as a token so
      themes can override without touching the goal CSS. */
-  --accent-warm: #d19a66;
+  --accent-warm: #d97757;
 }
 
 :root.light {
-  --bg: #f5f5f5;
-  --fg: #2b2b2b;
-  --panel: #fff;
-  --border: #bbb;
+  --bg: #faf9f5;
+  --fg: #141413;
+  --panel: #ffffff;
+  --border: #e0ddd2;
+  --red: #d97757;
   --hl-bg: #f9f9f9;
   --hl-fg: #2b2b2b;
   --hl-keyword: #7928a1;
@@ -5978,8 +5981,8 @@ body.bg-pattern-sparkles {
       }
     }
 /* SYNTAX HIGHLIGHTING — uses theme vars from style.css, no hardcoded overrides */
-.hljs { color: var(--hl-fg, #9cdef2); background: none !important; }
-pre { background: var(--code-bg, var(--hl-bg, #282c34)) !important; }
+.hljs { color: var(--hl-fg, #faf9f5); background: none !important; }
+pre { background: var(--code-bg, var(--hl-bg, #161514)) !important; }
 
     /* ---------- Search overlay (Ctrl+K command palette) ---------- */
     .search-overlay {
@@ -11559,7 +11562,7 @@ textarea.memory-add-input {
 
 .doc-language-select {
   background-color: var(--bg);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239cdef2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 15 12 9 18 15'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23faf9f5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 15 12 9 18 15'/></svg>");
   background-repeat: no-repeat;
   background-position: right 4px center;
   color: var(--fg);
@@ -14792,7 +14795,7 @@ body.left-dock-active {
   height: 30px;
   min-height: 30px;
   font-size: 11px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23e06c75' stroke-opacity='0.85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d97757' stroke-opacity='0.85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>");
   background-repeat: no-repeat;
   background-position: 9px center;
   padding-left: 28px;
@@ -20300,10 +20303,10 @@ body.gallery-selecting .gallery-dl-btn,
   animation: cookbook-srv-glow-ok 2.4s ease-in-out infinite;
 }
 .cookbook-srv-status.fail {
-  background: var(--red, #e06c75);
+  background: var(--red, #d97757);
   box-shadow:
-    0 0 0 2px color-mix(in srgb, var(--red, #e06c75) 25%, transparent),
-    0 0 10px 2px color-mix(in srgb, var(--red, #e06c75) 55%, transparent);
+    0 0 0 2px color-mix(in srgb, var(--red, #d97757) 25%, transparent),
+    0 0 10px 2px color-mix(in srgb, var(--red, #d97757) 55%, transparent);
 }
 @keyframes cookbook-srv-pulse {
   0%, 100% { opacity: 0.45; }
@@ -31278,7 +31281,7 @@ body.notes-mobile-mode.notes-drag-mode .note-card-pin.active {
   font-size: 11px;
   padding: 0 10px 0 28px;
   background-color: var(--bg);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23e06c75' stroke-opacity='0.85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d97757' stroke-opacity='0.85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>");
   background-repeat: no-repeat;
   background-position: 9px center;
   border: 1px solid var(--border);
@@ -35152,7 +35155,7 @@ input.cp-swatch-input::selection { background: transparent; }
   font-family: ui-monospace, 'Fira Code', monospace;
   font-size: 12px; text-transform: lowercase;
 }
-.cp-hex:focus { outline: none; border-color: var(--red, #e06c75); }
+.cp-hex:focus { outline: none; border-color: var(--red, #d97757); }
 .cp-eyedropper {
   width: 26px; height: 26px;
   padding: 0;
